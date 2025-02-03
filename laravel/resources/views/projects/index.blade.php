@@ -1,0 +1,26 @@
+<x-layout>
+    <x-slot:heading>
+        Projects
+    </x-slot:heading>
+    <ul>
+    <div class="space-y-4">
+        
+            @foreach ($projects as $project)
+                <li>
+            
+                    <a class="block px-4 py-6 border border-gray-200 rounded-lg" href="/projects/{{$project['id']}}">
+                    <strong>
+                       Project name: <h1>{{$project['project_name']}}</h1>
+                    </strong> 
+                    
+                       <div>
+                       <strong>Description:</strong><p>{{$project['description']}}</p>
+                       </div>
+                    </a>
+                </li>
+            @endforeach
+    </div>
+    </ul>
+    <div>{{$projects->links()}}</div>
+</x-layout>
+
