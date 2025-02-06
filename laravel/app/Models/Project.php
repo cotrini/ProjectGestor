@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
+    
+    protected $fillable = [
+        'project_name',
+        'description',
+        'start_date',
+        'end_date',
+        'overall_sustainability_score'
+    ];
+
+
+
     public function metrics() {
         return $this->belongsToMany(SustainabilityMetric::class, 'project_metrics')
                     ->withPivot(['metric_value', 'date_measured'])

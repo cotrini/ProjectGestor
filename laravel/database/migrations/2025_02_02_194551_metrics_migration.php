@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('project_metrics', function (Blueprint $table) {
             $table->id(); // Or you can omit this for composite keys
             $table->foreignId('project_id')->constrained('projects')->onDelete('cascade'); // Important for data integrity
-            $table->foreignId('metric_id')->constrained('sustainability_metrics')->onDelete('cascade'); // Important
+            $table->foreignId('sustainability_metric_id')->constrained('sustainability_metrics')->onDelete('cascade'); // Important
             $table->decimal('metric_value')->nullable();
             $table->date('date_measured')->nullable();
             $table->timestamps(); // Optional

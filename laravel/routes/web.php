@@ -29,3 +29,4 @@ Route::get('/users/register', function () {
 Route::get('/projects/create', [ProjectController::class,'create']);
 Route::get('/projects', [ProjectController::class,'index']);
 Route::get('/projects/{id}', [ProjectController::class,'show']);
+Route::post('/projects', [ProjectController::class,'store']);

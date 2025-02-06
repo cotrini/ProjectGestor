@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\SustainabilityCategory;
+use App\Models\SustainabilityMetric;
+
 
 class ProjectController extends Controller
 {
@@ -29,7 +32,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $project = new Project();
+        $project->project_name = $request->project_name;
+        $project->description = $request->description;
+        $project->start_date = $request->start_date;
+        $project->end_date = $request->end_date;
+        $project->overall_sustainability_score = $request->overall_sustainability_score;
+        $project->save();
+      
+
     }
 
     /**
