@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +20,19 @@ Route::get('/', function () {
 });
 
 Route::get('/users/login', function () {
-    return view('login');
+    return view('users.login');
 });
 
-Route::get('/users/register', function () {
-    return view('register');
-});
+Route::get('/users/register', [UserController::class,'create']);
+Route::post('/users/register', [UserController::class,'store']);
+
+
+
 
 Route::get('/projects/create', [ProjectController::class,'create']);
 Route::get('/projects', [ProjectController::class,'index']);
 Route::get('/projects/{id}', [ProjectController::class,'show']);
 Route::post('/projects', [ProjectController::class,'store']);
+Route::get('/projects/edit/{id}', [ProjectController::class,'edit']);
+Route::patch('/projects', [ProjectController::class,'update']);
+Route::delete('/projects/{id}', [ProjectController::class,'destroy']);
