@@ -25,6 +25,13 @@
           <p class="mt-3 text-sm/6 text-gray-600">Write a few sentences about this project.</p>
         </div>
 
+        <div class="sm:col-span-4">
+          <label for="budget" class="block text-sm/6 font-medium text-gray-900">Budget in millons</label>
+          <div class="mt-2">
+            <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+              <input type="text" name="budget" id="budget" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="budget">
+            </div>
+        </div>
         
 
         <div class="sm:col-span-3">
@@ -48,6 +55,7 @@
             <label for="end_date" class="block text-sm/6 font-medium text-gray-900">End date</label>
             <input name="end_date" id="end_date" type="date"></input>
         </div>
+        
         <input type="text" name="overall_sustainability_score" id="overall_sustainability_score" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="score">
       </div>
     </div>

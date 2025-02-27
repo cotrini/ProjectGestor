@@ -23,6 +23,7 @@ class ProjectFactory extends Factory
             'description' => $this->faker->paragraph,
             'start_date' => $this->faker->date(),
             'end_date' => $this->faker->date(),
+            'budget' => $this->faker->randomFloat(2, 0, 100),
             'overall_sustainability_score' => $this->faker->randomFloat(2, 0, 100)
         ];
     }

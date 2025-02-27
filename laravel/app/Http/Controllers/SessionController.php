@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\Password;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
-class UserController extends Controller
+
+class SessionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +20,9 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        if (Auth::user()->accountType == 'General User' or Auth::user()->accountType == 'Analyst'){
-            abort(403);
-        }
-       return view('users/register');
+       //
     }
 
     /**
@@ -33,16 +30,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->phone = $request->phone;
-        $user->accountType = $request->accountType;
-        $user->save();
-        Auth::login($user);
+        $atributes = Request()->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+        Auth::attempt($atributes);
         return redirect('/projects');
-
     }
 
     /**
@@ -72,8 +65,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
-        //
+ 
+        Auth::logout();
+        return redirect('/');
     }
 }

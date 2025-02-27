@@ -32,9 +32,16 @@
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
-            <a href="/projects" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Projects</a>
-            <a href="/users/login" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Login</a>
-            <a href="/users/register" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Register</a>
+            
+            @guest
+              <a href="/users/login" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Login</a>
+
+            @endguest
+            @auth
+              <a href="/users/register" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Register</a>
+              <a href="/projects" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Projects</a>
+              <a href="/../users/logout" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Logout</a>
+            @endauth
           </div>
         </div>
       </div>

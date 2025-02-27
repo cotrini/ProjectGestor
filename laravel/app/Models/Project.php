@@ -15,6 +15,7 @@ class Project extends Model
         'description',
         'start_date',
         'end_date',
+        'budget',
         'overall_sustainability_score'
     ];
 

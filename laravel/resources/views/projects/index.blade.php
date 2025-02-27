@@ -20,6 +20,9 @@
                        <div>
                        <strong>Description:</strong><p>{{$project['description']}}</p>
                        </div>
+                       <div>
+                       <strong>Budget:</strong><p>{{$project['budget']}} millons</p>
+                       </div>
                     </a>
                 </li>
             @endforeach

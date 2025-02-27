@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,9 @@ Route::get('/users/login', function () {
 Route::get('/users/register', [UserController::class,'create']);
 Route::post('/users/register', [UserController::class,'store']);
 
+Route::post('/users/login', [SessionController::class,'store']);
+Route::get('/users/logout', [SessionController::class,'destroy']);
+
 
 
 
@@ -36,3 +40,4 @@ Route::post('/projects', [ProjectController::class,'store']);
 Route::get('/projects/edit/{id}', [ProjectController::class,'edit']);
 Route::patch('/projects', [ProjectController::class,'update']);
 Route::delete('/projects/{id}', [ProjectController::class,'destroy']);
+Route::get('/projects/prediction/{id}', [ProjectController::class, 'prediction']);

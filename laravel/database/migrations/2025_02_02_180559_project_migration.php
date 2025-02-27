@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
+            $table->float('budget')->nullable();
             $table->unsignedDecimal('overall_sustainability_score')->nullable(); 
             $table->timestamps();
         });
